@@ -1,26 +1,109 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  .section-title{
+    font-family: theme('fontFamily.robotoCB');
+    font-size: 5vw;
+    text-transform: uppercase;
+    letter-spacing: -0.4vw;
+    margin-bottom: 7vw;
   }
-  body {
-    color: white;
-    background: black;
+
+  .responsive-section-title{
+    font-family: theme('fontFamily.robotoCB');
+    font-size: 4rem;
+    text-transform: uppercase;
+    letter-spacing: -0.2rem;
+    line-height: 4rem;
+    margin-bottom: 60px;
+  }
+
+  .text-style{
+     color: theme('colors.text');
+     font-family: 'robotoR';
+  }
+
+  .poligon{
+    clip-path: polygon(0 0, 46% 0, 55% 100%, 0% 100%);
+    background-color: rgba(255, 255, 255, 0.15);
+    height: 100%;
+    width: 100%;
+    padding: 10vw;
+  }
+
+  .responsive-image{
+    position: absolute;
+    height: 600px;
+    width: 80%;
+    z-index: 1000;
+    background: url('/public/images/phone.png');
+    background-size: cover;
+    
+  }
+
+  .rtl{
+    direction:rtl;
+    
+  }
+
+  .ltr{
+    direction: ltr;
+  }
+
+  .reverse{
+    transform: rotateX(180deg);
+  }
+
+  .stroke-text{
+    -webkit-text-stroke: 0.5px theme('colors.lightGrey');
+    color: white ;
+    font-family: theme('fontFamily.robotoCB');
+    text-transform: uppercase;
+    font-size: 15vw;
+    transform: rotate(90deg);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 2vw;
+    
+  }
+
+  .rtl::-webkit-scrollbar{
+    background: transparent;
+    width: 0;
+  }
+
+  .video::before{
+    content: '';
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    border: 1px solid theme('colors.lightGrey');
+    top: 30px;
+    left: 30px;
+    z-index: -1;
   }
 }
+
+@font-face {
+  font-family: "RobotoCB";
+  src: url("../public/fonts/Roboto/RobotoCondensed-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../public/fonts/Roboto/Roboto-Medium.ttf");
+}
+
+
+@font-face {
+  font-family: "RobotoR";
+  src: url("../public/fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@media (min-width: 768px) { 
+  .poligon{
+    clip-path: polygon(0 0, 80% 0, 90% 100%, 0% 100%);
+  }
+ }
