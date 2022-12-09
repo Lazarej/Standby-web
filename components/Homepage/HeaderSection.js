@@ -69,7 +69,7 @@ export default function HeaderSection() {
   return (
     <div className="mb-40">
       <div className=" w-full h-[50vh] md:h-[60vh] bg-primary flex ">
-      <div className="poligon"/>
+      <div className="poligon-home"/>
         <h1 className="uppercase font-robotoCB text-6xl mt-6 ml-8 tracking-tighter text-white absolute z-30 md:text-[4vw] md:ml-16 md:mt-10">
           Standby
         </h1>

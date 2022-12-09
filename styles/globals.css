@@ -25,12 +25,19 @@
      font-family: 'robotoR';
   }
 
-  .poligon{
+  .poligon-home{
     clip-path: polygon(0 0, 46% 0, 55% 100%, 0% 100%);
     background-color: rgba(255, 255, 255, 0.15);
     height: 100%;
     width: 100%;
     padding: 10vw;
+  }
+
+  .poligon-partner{
+    clip-path: polygon(100% 0, 100% 85%, 0 74%, 0 0);
+    background-color: theme('colors.primary');
+    height: 100%;
+    width: 100%;
   }
 
   .responsive-image{
@@ -84,6 +91,38 @@
     left: 30px;
     z-index: -1;
   }
+
+  input,textarea{
+    caret-color: theme('colors.primary');
+  }
+
+  .input{
+    position: relative;
+  }
+
+  .input::before{
+  content: '';
+  width: 5px;
+  height: 40%;
+  background: white;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50% ,-50%);
+  left: -1px;
+  z-index: 10;
+  }
+
+  .input::after{
+    content: '';
+    width: 5px;
+    height: 40%;
+    background: white;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50% ,-50%);
+    right: -6px;
+    z-index: 10;
+    }
 }
 
 @font-face {
