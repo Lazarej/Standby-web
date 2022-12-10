@@ -4,8 +4,16 @@ import { isMobile } from 'react-device-detect'
 import AboutSection from '../components/Homepage/AboutSection'
 import CarouselSection from '../components/Homepage/CarouselSection'
 import HeaderSection from '../components/Homepage/HeaderSection'
-
 export default function Home() {
+
+
+
+  useEffect(()=>{
+
+
+  },[])
+
+  
 
   return (
     <div className='overflow-hidden'>

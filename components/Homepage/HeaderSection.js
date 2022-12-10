@@ -6,19 +6,32 @@ import {
 } from "@react-hook/window-size";
 import Wrapper from "../Global/Wrapper";
 import Link from "next/link";
+import { gsap } from 'gsap'
 
 const phonePicture = new URL("../../public/images/phone.png", import.meta.url);
 
 export default function HeaderSection() {
   const windowWidth = useWindowWidth();
+  const tl = gsap.timeline({})
 
   useEffect(() => {
-    console.log(windowWidth);
-  });
+     GsapAnim()
+  },[]);
+
+  const GsapAnim = ()=>{
+
+    tl.to('#banner',{height:'60vh', duration:0.5},1.5);
+    tl.to('#header-title',{left:'8vw' ,top:'3vw', fontSize:'4vw', duration:0.5},1.5);
+    tl.to('#tel',{opacity:1 , duration:1},2);
+    tl.to('#info',{left:0 , duration:0.5},2.5);
+    tl.to('.poligon-home',{left:0 , duration:0.5},2);
+    
+  }
 
   const headerInfo = () => (
-    <div className="md:h-full flex flex-col justify-end md:mr-10 ">
-      <h2 className="mb-10 font-robotoCB text-[2.5rem] leading-[2.75rem] tracking-tighter uppercase md:w-82 md:leading-[2vw]  md:text-[2.2vw] md:text-white">
+    <div className="min-w-[40vw] relative flex flex-col justify-end md:h-full overflow-hidden ">
+      <div id="info" className=" md:mr-10 absolute left-[-110%]">
+       <h2 className="mb-10 font-robotoCB text-[2.5rem] leading-[2.75rem] tracking-tighter uppercase md:w-82 md:leading-[2vw]  md:text-[2.2vw] md:text-white">
         Toute l’actualité marketing en un seul outil
       </h2>
       <div className="md:flex">
@@ -63,14 +76,18 @@ export default function HeaderSection() {
         </div>
         </Link>
       </div>
+     
+    </div>
     </div>
   );
 
   return (
     <div className="mb-40">
-      <div className=" w-full h-[50vh] md:h-[60vh] bg-primary flex ">
+      <div id="banner" className=" w-full h-[50vh] md:h-[100vh] bg-primary flex relative ">
+      <div className="w-full h-full relative">
       <div className="poligon-home"/>
-        <h1 className="uppercase font-robotoCB text-6xl mt-6 ml-8 tracking-tighter text-white absolute z-30 md:text-[4vw] md:ml-16 md:mt-10">
+      </div>
+        <h1 id="header-title" className="uppercase font-robotoCB text-6xl mt-6 ml-8 tracking-tighter text-white absolute z-30 md:left-2/4 md:top-2/4 md:text-[10vw]  md:translate-y-[-50%] md:translate-x-[-50%]">
           Standby
         </h1>
         {windowWidth < 768 ? (
@@ -82,7 +99,8 @@ export default function HeaderSection() {
           <div>
             <div className="absolute left-[35%] top-0 z-10 w-[33vw] h-[53vw]">
             <iframe
-              className=""
+            id="tel"
+              className="opacity-0 "
               src="https://my.spline.design/untitled-55a33ad88c11428917f31638407f88ae/"
               frameborder="0"
               width="100%"
